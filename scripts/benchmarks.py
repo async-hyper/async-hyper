@@ -62,6 +62,7 @@ class BenchmarkRunner:
             Account.from_key(API_KEY), constants.TESTNET_API_URL
         )
         self.results: List[BenchmarkResult] = []
+        self.detailed_times: List[dict] = []
 
     async def async_user_state(self) -> None:
         """Async user state request with rate limiting."""
@@ -125,6 +126,15 @@ class BenchmarkRunner:
                         iter_time = future.result()
                         times.append(iter_time)
                         success_count += 1
+                        self.detailed_times.append(
+                            {
+                                "operation": operation,
+                                "method": "sync",
+                                "iteration": iteration + 1,
+                                "time": iter_time,
+                                "timestamp": time.time(),
+                            }
+                        )
                         print(
                             f"  Iteration {iteration + 1}/{iterations}: {iter_time:.3f}s"
                         )
@@ -317,7 +327,7 @@ class BenchmarkRunner:
                     )
 
 
-async def test_concurrent_performance():
+async def run_benchmarks():
     """Test concurrent performance to show async advantages."""
     print("\n🚀 Testing concurrent performance differences...")
 
@@ -452,7 +462,7 @@ async def test_concurrent_performance():
 async def main():
     """Main benchmark execution."""
     try:
-        await test_concurrent_performance()
+        await run_benchmarks()
     except Exception:
         import traceback
 
