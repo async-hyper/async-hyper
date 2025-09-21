@@ -1,0 +1,3 @@
+[submodule "async-hyper-web3"]
+	path = async-hyper-web3
+	url = https://github.com/async-hyper/async-hyper-web3

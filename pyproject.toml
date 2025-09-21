@@ -1,0 +1,85 @@
+[project]
+name = "async-hyper"
+version = "0.1.0"
+description = "Async Hyperliquid client using aiohttp"
+authors = [{ name = "Yuki", email = "yuqi.lyle@gmail.com" }]
+readme = "README.md"
+license = { file = "LICENSE" }
+keywords = ["dex", "hyperliquid", "async", "aiohttp", "trading", "cryptocurrency", "defi"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Financial and Insurance Industry",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Office/Business :: Financial :: Investment",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
+    "Framework :: AsyncIO",
+    "Framework :: aiohttp",
+    "Typing :: Typed",
+]
+requires-python = ">=3.10,<4"
+dependencies = [
+    "aiohttp (>=3.11.12,<4.0.0)",
+    "msgpack (>=1.1.0,<2.0.0)",
+    "eth-account (>=0.13.5,<0.14.0)",
+    "eth-utils (>=5.2.0,<6.0.0)",
+    "async-hyper-web3",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=8.3.5",
+    "pytest-asyncio>=0.25.3",
+    "pytest-ruff>=0.4.1",
+    "pytest-cov>=6.0.0",
+    "pre-commit>=4.1.0",
+    "python-dotenv>=1.0.1",
+]
+
+[project.urls]
+Homepage = "https://github.com/async-hyper/async-hyper"
+Documentation = "https://github.com/async-hyper/async-hyper"
+Repository = "https://github.com/async-hyper/async-hyper"
+Issues = "https://github.com/async-hyper/async-hyper/issues"
+Changelog = "https://github.com/async-hyper/async-hyper/blob/master/CHANGELOG.md"
+
+
+#[build-system]
+#requires = ["poetry-core>=2.0.0,<3.0.0"]
+#build-backend = "poetry.core.masonry.api"
+#
+#[tool.poetry]
+#requires-poetry = ">=2.0"
+#packages = [{ include = "async_hyper", from = "src" }]
+
+[build-system]
+requires = ["uv_build>=0.7.11,<0.8.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "async_hyper"
+src-layout = true
+
+[tool.uv.sources]
+async-hyper-web3 = { workspace = true }
+
+[tool.uv.workspace]
+members = ["async-hyper-web3"]
+
+
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+addopts = "--verbose --capture=no"
+asyncio_default_fixture_loop_scope = "session"
+filterwarnings = [
+    "ignore::DeprecationWarning"
+]

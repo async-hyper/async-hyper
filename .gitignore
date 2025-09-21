@@ -1,0 +1,17 @@
+.env
+.env.local
+
+__pycache__/
+
+.pytest_cache/
+.ruff_cache/
+
+.coverage/
+
+.DS_Store
+
+dist/
+build/
+
+# local test file
+tests/test_local.py
