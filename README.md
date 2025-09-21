@@ -1,10 +1,11 @@
 # Async Hyperliquid
 
-An asynchronous Python client for interacting with the Hyperliquid API using `aiohttp`.
+An asynchronous Python client for interacting with Hyperliquid using `aiohttp`.
 
 ## Overview
 
-This library provides an easy-to-use asynchronous interface for the Hyperliquid cryptocurrency exchange, supporting both mainnet and testnet environments. It handles API interactions, request signing, and data processing for both perpetual futures and spot trading.
+This library provides an easy-to-use asynchronous interface for the Hyperliquid
+cryptocurrency exchange, supporting both API and HyperEVM.
 
 ## Features
 
@@ -13,23 +14,28 @@ This library provides an easy-to-use asynchronous interface for the Hyperliquid 
 
 ## Installation
 
+
+## Installation
+
 ```bash
+# Using uv
+uv add git+https://github.com/async-hyper/async-hyper.git
+
 # Using pip
-pip install async-hyperliquid
+pip install git+https://github.com/async-hyper/async-hyper.git
 
 # Using Poetry
-poetry add async-hyperliquid
+poetry add git+https://github.com/async-hyper/async-hyper.git
 
-# Using uv
-uv add async-hyperliquid
 ```
+
 
 ## Quick Start
 
 ```python
 import asyncio
 import os
-from async_hyperliquid.async_hyper import AsyncHyper
+from async_hyper import AsyncHyper
 
 async def main():
     # Initialize the client
@@ -61,7 +67,7 @@ Or if you perfer context way:
 ```python
 import asyncio
 import os
-from async_hyperliquid.async_hyper import AsyncHyper
+from async_hyper import AsyncHyper
 
 async def main():
     # Initialize the client
@@ -175,7 +181,7 @@ uv pip install -e .
 pytest
 
 # Run with coverage
-pytest --cov=async_hyperliquid
+pytest --cov=async_hyper
 ```
 
 ## License

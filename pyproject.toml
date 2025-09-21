@@ -52,14 +52,6 @@ Issues = "https://github.com/async-hyper/async-hyper/issues"
 Changelog = "https://github.com/async-hyper/async-hyper/blob/master/CHANGELOG.md"
 
 
-#[build-system]
-#requires = ["poetry-core>=2.0.0,<3.0.0"]
-#build-backend = "poetry.core.masonry.api"
-#
-#[tool.poetry]
-#requires-poetry = ">=2.0"
-#packages = [{ include = "async_hyper", from = "src" }]
-
 [build-system]
 requires = ["uv_build>=0.7.11,<0.8.0"]
 build-backend = "uv_build"
