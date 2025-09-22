@@ -14,9 +14,6 @@ cryptocurrency exchange, supporting both API and HyperEVM.
 
 ## Installation
 
-
-## Installation
-
 ```bash
 # Using uv
 uv add git+https://github.com/async-hyper/async-hyper.git
