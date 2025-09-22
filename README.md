@@ -11,6 +11,8 @@ cryptocurrency exchange, supporting both API and HyperEVM.
 
 - Asynchronous API communication using `aiohttp`
 - Support for both Hyperliquid API and HyperEVM
+- Support for TP/SL orders
+- Support for TWAP orders
 
 ## Installation
 
